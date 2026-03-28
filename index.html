@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>拉了吗 — 调研报告</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #faf5ee;
+  color: #3d3328;
+  line-height: 1.7;
+  padding: 20px 16px 60px;
+  max-width: 640px;
+  margin: 0 auto;
+}
+h1 { font-size: 28px; margin-bottom: 4px; }
+.subtitle { color: #8b7355; font-size: 14px; margin-bottom: 24px; }
+h2 {
+  font-size: 20px;
+  margin: 32px 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #e8dcc8;
+  color: #5a4a32;
+}
+h3 { font-size: 17px; margin: 20px 0 8px; color: #6b5b43; }
+p { margin-bottom: 12px; font-size: 15px; }
+strong { color: #5a4a32; }
+.hero {
+  background: linear-gradient(135deg, #f5e6c8, #ffe4b5);
+  border-radius: 16px;
+  padding: 24px 20px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+.hero .emoji { font-size: 48px; margin-bottom: 8px; }
+.hero h1 { color: #5a4a32; }
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+.card-title { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+.stat { display: inline-block; background: #fef3e0; border-radius: 8px; padding: 4px 10px; margin: 2px 4px 2px 0; font-size: 13px; font-weight: 600; color: #b8860b; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+th { background: #f5edd8; text-align: left; padding: 8px 6px; font-size: 12px; color: #8b7355; }
+td { padding: 8px 6px; border-bottom: 1px solid #f0e8d8; vertical-align: top; }
+tr:last-child td { border-bottom: none; }
+.tag { display: inline-block; background: #e8f5e9; color: #2e7d32; border-radius: 6px; padding: 2px 8px; font-size: 12px; margin: 2px; }
+.tag.high { background: #fff3e0; color: #e65100; }
+.tag.blue { background: #e3f2fd; color: #1565c0; }
+ul { padding-left: 20px; margin-bottom: 12px; }
+li { margin-bottom: 6px; font-size: 14px; }
+.rank { font-size: 24px; margin-right: 8px; vertical-align: middle; }
+.suggestion {
+  background: linear-gradient(135deg, #e8f5e9, #f1f8e9);
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 16px;
+  border-left: 4px solid #66bb6a;
+}
+.competitor {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 10px 0;
+  border-bottom: 1px solid #f0e8d8;
+}
+.competitor:last-child { border-bottom: none; }
+.comp-name { font-weight: 600; font-size: 14px; }
+.comp-desc { font-size: 13px; color: #6b5b43; }
+.comp-tags { margin-top: 4px; }
+.persona-card {
+  background: linear-gradient(135deg, #fce4ec, #fff3e0);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+.idea-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0e8d8;
+}
+.idea-row:last-child { border-bottom: none; }
+.idea-rank { font-size: 28px; flex-shrink: 0; }
+.idea-text h4 { font-size: 15px; margin-bottom: 4px; }
+.idea-text p { font-size: 13px; color: #6b5b43; margin-bottom: 0; }
+.pain { color: #c62828; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="emoji">💩</div>
+  <h1>拉了吗</h1>
+  <p class="subtitle">用户调研 + 竞品调研 + 脑暴 · 娜美🍊</p>
+</div>
+
+<h2>📊 市场有多大？</h2>
+<div class="card">
+  <p>便秘治疗市场</p>
+  <span class="stat">$193亿 (2024)</span>
+  <span class="stat">→ $329亿 (2033)</span>
+  <p style="margin-top:12px">IBS 治疗市场 <span class="stat">$38.4亿</span></p>
+  <p>肠道健康补充剂 <span class="stat">$183.6亿</span></p>
+</div>
+<div class="card">
+  <div class="card-title">🤰 孕妇人群特别突出</div>
+  <ul>
+    <li>便秘影响 <strong>11%-38%</strong> 的孕妇</li>
+    <li>痔疮在孕期发病率显著高于非孕期</li>
+    <li>铁剂补充、活动减少、激素变化是主因</li>
+    <li class="pain"><strong>痛感极强，但几乎没有专门工具</strong></li>
+  </ul>
+</div>
+
+<h2>🔍 竞品分析</h2>
+
+<h3>海外</h3>
+<div class="card">
+  <div class="competitor">
+    <div><div class="comp-name">Balloon</div><div class="comp-desc">排便记录+肠道健康+饮食关联+AI分析</div><div class="comp-tags"><span class="tag">设计好</span><span class="tag high">$9.99/月</span></div></div>
+  </div>
+  <div class="competitor">
+    <div><div class="comp-name">Plop</div><div class="comp-desc">极简排便记录，一键搞定</div><div class="comp-tags"><span class="tag">超快</span><span class="tag high">功能太少</span></div></div>
+  </div>
+  <div class="competitor">
+    <div><div class="comp-name">Bowelle</div><div class="comp-desc">IBS症状追踪+低FODMAP饮食</div><div class="comp-tags"><span class="tag">专业</span><span class="tag high">太复杂</span></div></div>
+  </div>
+  <div class="competitor">
+    <div><div class="comp-name">Bowel Mover Pro</div><div class="comp-desc">排便记录+Bristol量表，$2.99买断</div><div class="comp-tags"><span class="tag">老牌</span><span class="tag high">UI过时</span></div></div>
+  </div>
+</div>
+
+<h3>国内</h3>
+<div class="card">
+  <div class="competitor">
+    <div><div class="comp-name">大便记录</div><div class="comp-desc">图标化操作+肠道分析</div><div class="comp-tags"><span class="tag">中文</span><span class="tag high">评价少</span></div></div>
+  </div>
+  <div class="competitor">
+    <div><div class="comp-name">ウンログ (日本)</div><div class="comp-desc">便便记录+肠活+医生监修，300万+下载</div><div class="comp-tags"><span class="tag">社区感</span><span class="tag high">日文only</span></div></div>
+  </div>
+  <div class="competitor">
+    <div><div class="comp-name">格里 / 便便星</div><div class="comp-desc">排便记录+分析，安卓only</div><div class="comp-tags"><span class="tag high">安卓only</span></div></div>
+  </div>
+</div>
+
+<div class="card" style="border-left: 3px solid #e65100;">
+  <div class="card-title">🚨 竞品共同问题</div>
+  <ul>
+    <li><strong>没人专做孕期</strong> — 全是通用工具</li>
+    <li><strong>记录有余，行动不足</strong> — 记完然后呢？</li>
+    <li><strong>无趣</strong> — 医疗风格，冷冰冰</li>
+    <li><strong>无情感支持</strong> — 便秘很孤独</li>
+    <li><strong>订阅贵</strong> — 记个💩还要月付？</li>
+  </ul>
+</div>
+
+<h2>👤 用户画像</h2>
+
+<div class="persona-card">
+  <div class="card-title">🤰 核心用户：孕期妈妈/准爸爸</div>
+  <ul>
+    <li><strong>痛点</strong>：便秘+痔疮+不敢用药+焦虑</li>
+    <li><strong>场景</strong>：蹲厕所时、产检前回顾、半夜被堵醒</li>
+    <li><strong>情感</strong>：想被理解、不孤单、知道这是正常的</li>
+  </ul>
+</div>
+
+<div class="card">
+  <div class="card-title">📈 扩展用户</div>
+  <table>
+    <tr><td><strong>IBS患者</strong></td><td>全球10-15%人口</td></tr>
+    <tr><td><strong>健身/减脂</strong></td><td>高蛋白→便秘</td></tr>
+    <tr><td><strong>宝宝家长</strong></td><td>辅食期焦虑</td></tr>
+    <tr><td><strong>老年人</strong></td><td>慢性便秘</td></tr>
+    <tr><td><strong>痔疮患者</strong></td><td>日常管理+术后</td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <div class="card-title">📱 使用场景</div>
+  <ul>
+    <li>🚽 <strong>蹲厕所</strong> — 记录（必须3秒完成）</li>
+    <li>🍽️ <strong>吃饭前后</strong> — 饮食关联</li>
+    <li>🏥 <strong>看医生前</strong> — 导出报告</li>
+    <li>🌙 <strong>睡前</strong> — 今天拉了吗？</li>
+    <li>😰 <strong>焦虑时</strong> — 三天没拉正常吗？</li>
+  </ul>
+</div>
+
+<h2>💡 功能方向脑暴</h2>
+
+<div class="card">
+  <table>
+    <th>方向</th><th>差异化</th><th>难度</th>
+    <tr><td>极简记录</td><td>⭐ 低</td><td>⭐ 低</td></tr>
+    <tr><td>饮食-排便关联</td><td>⭐⭐ 中</td><td>⭐⭐⭐</td></tr>
+    <tr><td><strong>孕期专属模式</strong></td><td><span class="tag high">⭐⭐⭐ 高</span></td><td>⭐⭐</td></tr>
+    <tr><td><strong>痔疮日记+护理</strong></td><td><span class="tag high">⭐⭐⭐ 高</span></td><td>⭐⭐</td></tr>
+    <tr><td><strong>💩社交打卡</strong></td><td><span class="tag high">⭐⭐⭐ 高</span></td><td>⭐⭐</td></tr>
+    <tr><td>AI分析建议</td><td>⭐⭐</td><td>⭐⭐⭐</td></tr>
+    <tr><td>医生报告导出</td><td>⭐⭐</td><td>⭐ 低</td></tr>
+    <tr><td>趣味化/游戏化</td><td><span class="tag high">⭐⭐⭐ 高</span></td><td>⭐⭐</td></tr>
+  </table>
+</div>
+
+<h2>🏆 Top 5 方向</h2>
+
+<div class="card">
+  <div class="idea-row">
+    <div class="idea-rank">🏆</div>
+    <div class="idea-text"><h4>极简记录 + 趣味化</h4><p>记💩只要1秒，连续打卡成就、💩热力图、"恭喜你今天拉了！"。门槛最低，传播性最强。</p></div>
+  </div>
+  <div class="idea-row">
+    <div class="idea-rank">🥈</div>
+    <div class="idea-text"><h4>孕期便秘+痔疮专属</h4><p>按孕周推送建议、安全食疗、痔疮护理、产检报告导出。蓝海，痛点极强。</p></div>
+  </div>
+  <div class="idea-row">
+    <div class="idea-rank">🥉</div>
+    <div class="idea-text"><h4>饮食-排便关联发现</h4><p>"你吃火锅后80%会腹泻"。真有用，但需一周数据。</p></div>
+  </div>
+  <div class="idea-row">
+    <div class="idea-rank">💩</div>
+    <div class="idea-text"><h4>社交打卡</h4><p>跟伴侣互问"拉了吗"，便秘时互相鼓励。传播爆炸力。</p></div>
+  </div>
+  <div class="idea-row">
+    <div class="idea-rank">📊</div>
+    <div class="idea-text"><h4>医生报告生成器</h4><p>Bristol量表分布+频率+症状，看诊时给医生。实用但低频。</p></div>
+  </div>
+</div>
+
+<div class="suggestion">
+  <div class="card-title">🍊 娜美的建议</div>
+  <h3 style="margin-top:8px">V1 做：极简记录 + 趣味化 + 孕期模式</h3>
+  <ul style="margin-top:12px">
+    <li><strong>核心</strong>：记💩 — 1秒完成，好玩不尴尬</li>
+    <li><strong>差异化</strong>：孕期模式 — 没人做，你自己就是用户</li>
+    <li><strong>留存</strong>：趣味化 — 💩日历、连续天数、成就系统</li>
+    <li><strong>营销</strong>：「拉了吗」这个名字本身就是最大的营销</li>
+  </ul>
+</div>
+
+<p style="text-align:center; margin-top:32px; color:#8b7355; font-size:13px">
+  拉了吗 · 2026-03-28 · 🍊 娜美出品
+</p>
+
+</body>
+</html>
