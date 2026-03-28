@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>拉了吗 v1.0 — 产品设计方案</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #faf5ee; color: #3d3328; line-height: 1.7;
+  padding: 20px 16px 60px; max-width: 640px; margin: 0 auto;
+}
+.hero { background: linear-gradient(135deg, #f5e6c8, #ffe4b5); border-radius: 16px; padding: 24px 20px; margin-bottom: 24px; text-align: center; }
+.hero .emoji { font-size: 48px; margin-bottom: 8px; }
+.hero h1 { font-size: 26px; color: #5a4a32; margin-bottom: 4px; }
+.hero .sub { color: #8b7355; font-size: 14px; }
+h2 { font-size: 20px; margin: 28px 0 12px; padding-bottom: 8px; border-bottom: 2px solid #e8dcc8; color: #5a4a32; }
+h3 { font-size: 17px; margin: 20px 0 8px; color: #6b5b43; }
+h4 { font-size: 15px; margin: 12px 0 6px; color: #5a4a32; }
+p { margin-bottom: 10px; font-size: 15px; }
+strong { color: #5a4a32; }
+.card { background: #fff; border-radius: 12px; padding: 16px; margin-bottom: 14px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+.card-title { font-size: 16px; font-weight: 700; margin-bottom: 10px; }
+ul { padding-left: 20px; margin-bottom: 10px; }
+li { margin-bottom: 5px; font-size: 14px; }
+.tag { display: inline-block; border-radius: 6px; padding: 2px 8px; font-size: 12px; margin: 2px; }
+.tag-green { background: #e8f5e9; color: #2e7d32; }
+.tag-orange { background: #fff3e0; color: #e65100; }
+.tag-blue { background: #e3f2fd; color: #1565c0; }
+.tag-purple { background: #f3e5f5; color: #7b1fa2; }
+.flow { background: #f9f5ed; border-left: 3px solid #e8dcc8; padding: 10px 14px; margin: 8px 0 12px; border-radius: 0 8px 8px 0; font-size: 13px; }
+.flow .step { margin-bottom: 4px; }
+.flow .step::before { content: "→ "; color: #b8860b; font-weight: 600; }
+.timeline { position: relative; padding-left: 24px; margin: 12px 0; }
+.timeline::before { content: ''; position: absolute; left: 8px; top: 4px; bottom: 4px; width: 2px; background: #e8dcc8; }
+.tl-item { position: relative; margin-bottom: 14px; }
+.tl-item::before { content: ''; position: absolute; left: -20px; top: 6px; width: 10px; height: 10px; background: #b8860b; border-radius: 50%; }
+.tl-item .week { font-weight: 700; font-size: 14px; color: #5a4a32; }
+.tl-item .desc { font-size: 13px; color: #6b5b43; }
+.model-block { background: #f5f0e6; border-radius: 10px; padding: 12px; margin: 8px 0 12px; font-family: 'SF Mono', monospace; font-size: 12px; line-height: 1.6; overflow-x: auto; }
+.highlight { background: linear-gradient(135deg, #e8f5e9, #f1f8e9); border-radius: 12px; padding: 16px; margin: 16px 0; border-left: 4px solid #66bb6a; }
+.metric { display: inline-block; background: #fef3e0; border-radius: 8px; padding: 6px 12px; margin: 4px; font-size: 14px; font-weight: 600; color: #b8860b; text-align: center; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 8px 0; }
+.privacy { background: #fce4ec; border-radius: 10px; padding: 12px 14px; margin: 8px 0; font-size: 13px; }
+.privacy::before { content: "🔒 "; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="emoji">💩</div>
+  <h1>拉了吗 v1.0</h1>
+  <p class="sub">产品设计方案 · 娜美🍊</p>
+  <p class="sub">趣味化 × 社交化 × 孕期模式</p>
+</div>
+
+<!-- 产品定位 -->
+<div class="card" style="border-left: 3px solid #b8860b;">
+  <div class="card-title">🎯 产品定位</div>
+  <p>专为孕期妈妈/准爸爸设计的趣味便便记录 App。<br>通过游戏化和轻社交让"记💩"变得好玩不尴尬。</p>
+  <p><span class="tag tag-green">iOS</span> <span class="tag tag-blue">SwiftUI</span> <span class="tag tag-orange">Solo Builder 2-4周</span></p>
+</div>
+
+<h2>📱 页面设计</h2>
+
+<!-- 主界面 -->
+<h3>1. 💩 记录中心（首页）</h3>
+<div class="card">
+  <p>卡通森林背景，中央大💩按钮，上方"今天拉了吗？"</p>
+  <div class="flow">
+    <div class="step">点击💩按钮 → 弹出记录面板</div>
+    <div class="step">选 Bristol 分型 1-7（卡通💩表情）</div>
+    <div class="step">选时长 + 心情 emoji</div>
+    <div class="step">提交 → 💩长翅膀飞走 + 经验值浮动</div>
+    <div class="step">按钮变绿 → "今日已拉 ✅"</div>
+  </div>
+  <h4>趣味细节</h4>
+  <ul>
+    <li>Bristol 类型对应💩表情（便秘😵 正常😊 腹泻😰）</li>
+    <li>连续天数显示🔥火焰</li>
+    <li>每次记录随机掉落"纤维币"💎</li>
+  </ul>
+</div>
+
+<!-- 成就系统 -->
+<h3>2. 💎 成就收藏馆</h3>
+<div class="card">
+  <p>展示柜风格，展示已解锁的💩徽章和称号</p>
+  <h4>成就设计</h4>
+  <ul>
+    <li><span class="tag tag-green">基础</span> 首次记录 · 连续7天 · 连续30天</li>
+    <li><span class="tag tag-orange">特殊</span> 深夜拉屎侠(23-6点) · 便秘克星(1-2→3-4)</li>
+    <li><span class="tag tag-purple">孕期</span> 孕早期坚持 · 二胎妈妈 · 准爸爸关爱奖</li>
+    <li><span class="tag tag-blue">彩蛋</span> 厕所里连开App 3次→"厕所达人"</li>
+  </ul>
+  <p><strong>解锁动画：</strong>宝箱开启 → 徽章旋转飞入 → 叮～🎵</p>
+</div>
+
+<!-- 热力图 -->
+<h3>3. 📊 便便日历（热力图）</h3>
+<div class="card">
+  <p>GitHub 风格热力图，颜色表示便便质量：</p>
+  <div class="grid2">
+    <div><span style="color:#2e7d32">■■</span> 深绿 = Bristol 3-4（完美）</div>
+    <div><span style="color:#81c784">■■</span> 浅绿 = Bristol 2,5（还行）</div>
+    <div><span style="color:#bdbdbd">■■</span> 灰色 = 未记录</div>
+    <div><span style="color:#e53935">■■</span> 红色 = Bristol 1,6,7（异常）</div>
+  </div>
+  <ul>
+    <li>点击日期 → 查看详细记录</li>
+    <li>长按分享当月成果（只显示颜色，隐私化）</li>
+    <li>孕期模式：叠加孕周标记 + 便秘高发期提醒</li>
+  </ul>
+</div>
+
+<!-- 社交 -->
+<h3>4. 👥 便便伙伴（社交）</h3>
+<div class="card">
+  <h4>加好友</h4>
+  <ul>
+    <li>扫码添加（可爱💩头像二维码）</li>
+    <li>手机号邀请</li>
+    <li>伴侣自动标记为"💕便便CP"</li>
+  </ul>
+  <h4>互动功能</h4>
+  <ul>
+    <li>每日"戳一戳"提醒记录</li>
+    <li>查看好友连续天数（不看详情）</li>
+    <li>便秘时发 🆘 求助信号</li>
+    <li>创建家庭便便群（最多6人）</li>
+  </ul>
+  <div class="privacy">
+    详细记录仅自己可见 · 好友只看"拉了/没拉"+连续天数 · 可开隐身模式
+  </div>
+</div>
+
+<!-- 孕期 -->
+<h3>5. 🤰 孕期模式</h3>
+<div class="card">
+  <ul>
+    <li>按孕周推送便秘预防 tip</li>
+    <li>28周+ 增加胎动记录入口</li>
+    <li>产后自动切"月子模式"</li>
+    <li>孕期便秘科普动画（医生审核）</li>
+    <li>高纤维安全食谱推荐</li>
+    <li>助消化孕妇瑜伽动作</li>
+  </ul>
+</div>
+
+<!-- 设置 -->
+<h3>6. ⚙️ 设置</h3>
+<div class="card">
+  <ul>
+    <li>提醒时间（早中晚可选）</li>
+    <li>伴侣绑定/解绑</li>
+    <li>社交可见度设置</li>
+    <li>孕期信息（预产期、孕周）</li>
+    <li>数据导出 PDF 报告（就医用）</li>
+  </ul>
+</div>
+
+<h2>💾 数据模型</h2>
+
+<div class="card">
+  <div class="model-block">
+<strong>User</strong>
+id: UUID · nickname · avatar (💩 variations)
+pregnancyMode: Bool · dueDate: Date?
+partnerID: UUID? · joinedAt: Date
+
+<strong>PoopRecord</strong>
+id: UUID · userID · bristolType: 1-7
+duration: Int(分钟) · mood: emoji
+timestamp: Date · notes: String?
+
+<strong>Achievement</strong>
+id: UUID · userID · type · unlockedAt
+isHidden: Bool (彩蛋)
+
+<strong>Friendship</strong>
+id: UUID · userID · friendID
+type: friend | partner | family
+  </div>
+</div>
+
+<h2>🔧 技术要点</h2>
+
+<div class="card">
+  <ul>
+    <li><strong>存储：</strong>Core Data + 敏感数据加密 + 离线优先</li>
+    <li><strong>动画：</strong>SwiftUI Animation + Lottie</li>
+    <li><strong>推送：</strong>每日提醒 · 好友戳戳 · 3天未拉警告 · 成就解锁</li>
+    <li><strong>隐私：</strong>数据本地优先 · 社交最小传输 · 支持删号</li>
+  </ul>
+</div>
+
+<h2>📅 开发计划</h2>
+
+<div class="card">
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="week">Week 1-2 · 核心</div>
+      <div class="desc">记录界面 + 本地存储 + 基础成就</div>
+    </div>
+    <div class="tl-item">
+      <div class="week">Week 3 · 趣味化</div>
+      <div class="desc">动画效果 + 热力图 + 徽章设计</div>
+    </div>
+    <div class="tl-item">
+      <div class="week">Week 4 · 社交+孕期</div>
+      <div class="desc">好友系统 + 孕期模式 + 推送通知</div>
+    </div>
+    <div class="tl-item" style="opacity:0.6">
+      <div class="week">后续版本</div>
+      <div class="desc">AI 分析建议 · 更多彩蛋 · 社区扩展</div>
+    </div>
+  </div>
+</div>
+
+<h2>📈 成功指标</h2>
+
+<div class="card" style="text-align: center;">
+  <div class="metric">日活记录率<br>&gt; 60%</div>
+  <div class="metric">7日留存<br>&gt; 40%</div>
+  <div class="metric">邀请转化<br>&gt; 20%</div>
+  <div class="metric">孕期用户<br>&gt; 30%</div>
+</div>
+
+<div class="highlight">
+  <div class="card-title">🍊 核心理念</div>
+  <p style="font-size: 16px; margin-top: 8px;">💩 让记录变得有趣，让关爱变得简单</p>
+  <p style="font-size: 13px; color: #6b5b43;">「拉了吗」这个名字本身就是最大的营销。</p>
+</div>
+
+<p style="text-align:center; margin-top:32px; color:#8b7355; font-size:13px">
+  拉了吗 v1.0 · 产品设计方案 · 🍊 娜美出品
+</p>
+
+<!-- 导航 -->
+<div style="text-align:center; margin-top:16px;">
+  <a href="index.html" style="color:#b8860b; font-size:14px;">← 返回调研报告</a>
+</div>
+
+</body>
+</html>
